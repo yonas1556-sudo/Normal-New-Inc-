@@ -355,3 +355,29 @@ section { padding: 130px 0; }
     opacity: 0 !important;
     visibility: hidden !important;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: 92%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .nav-menu,
+  .leadership-grid,
+  .capabilities-grid,
+  .footer-split {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  input,
+  textarea,
+  button {
+    width: 100%;
+  }
+}
