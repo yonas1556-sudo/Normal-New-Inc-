@@ -1,0 +1,357 @@
+/* --- Core Reset & Normal New Palette --- */
+:root {
+    --primary-black: #050505;
+    --nni-white: #ffffff;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --text-gray: #444444;
+    --logo-gold-accent: #cbbba1; /* A subtle, optional accent from your logo (if you have one), otherwise, grayscale works best */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    background-color: var(--nni-white); 
+    color: var(--primary-black); 
+    line-height: 1.7; 
+}
+.container { width: 90%; max-width: 1300px; margin: 0 auto; }
+p { font-size: 1rem; color: var(--text-gray); font-weight: 400; margin-bottom: 1rem; }
+h1, h2, h3, h4 { font-weight: 700; color: var(--primary-black); }
+
+/* --- Section Styling --- */
+section { padding: 130px 0; }
+.bg-light { background-color: var(--light-gray); }
+.dark-theme { background-color: var(--primary-black); color: var(--nni-white); }
+.dark-theme p { color: #cccccc; }
+.dark-theme .section-title { color: var(--nni-white); }
+
+.section-title { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.8rem; 
+    text-transform: uppercase; 
+    letter-spacing: 4px; 
+    margin-bottom: 60px; 
+    position: relative;
+    padding-bottom: 15px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 70px; height: 3px;
+    background-color: var(--primary-black);
+}
+.light.section-title::after { background-color: var(--nni-white); }
+
+/* --- Header / Navigation --- */
+.navbar { 
+    background-color: rgba(255,255,255,0.98); 
+    padding: 15px 0; 
+    position: fixed; top: 0; width: 100%; z-index: 1000; 
+    border-bottom: 1px solid var(--medium-gray);
+}
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+
+/* Logo Styling */
+.logo-container { text-decoration: none; }
+.main-logo { height: 120px; width: auto; max-width: 250px; }
+
+/* Nav Links */
+.nav-links { list-style: none; display: flex; align-items: center; }
+.nav-links li { margin-left: 35px; }
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--primary-black); 
+    font-weight: 700; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+.nav-links a:hover { opacity: 0.7; }
+.nav-links a.nav-highlight { border: 1px solid var(--primary-black); padding: 8px 15px; }
+
+/* --- Hero Section (Minimalist) --- */
+.hero-minimal { height: 90vh; background-color: var(--primary-black); color: var(--nni-white); display: flex; align-items: center; position: relative; }
+.hero-minimal::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 40%; height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><line x1="1" y1="1" x2="99" y2="99" stroke="white" stroke-width="0.5"/><line x1="99" y1="1" x2="1" y2="99" stroke="white" stroke-width="0.5"/></svg>'); /* Abstract grid pattern */
+    background-size: cover;
+}
+.hero-content { position: relative; z-index: 5; }
+.hero-minimal h2 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 4.5rem; 
+    font-weight: 500; 
+    font-style: italic; 
+    color: var(--nni-white); 
+    line-height: 1.1; 
+    margin-bottom: 30px; 
+}
+.hero-minimal h2 span { font-style: normal; font-weight: 700; color: #f2f2f2; display: block; margin-top: 10px; }
+.hero-minimal p { font-size: 1.25rem; color: #dddddd; max-width: 700px; margin-bottom: 40px; }
+
+/* Buttons */
+.btn-dark { 
+    background-color: var(--nni-white); 
+    color: var(--primary-black) !important; 
+    padding: 15px 35px; 
+    text-decoration: none; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    display: inline-block;
+    transition: 0.3s;
+}
+.btn-dark:hover { background-color: var(--light-gray); }
+
+/* --- Capabilities Section --- */
+.capabilities-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.capability-item { display: flex; }
+.cap-number { font-size: 3rem; color: var(--medium-gray); font-weight: 700; font-family: 'Playfair Display', serif; width: 70px; flex-shrink: 0; line-height: 1; }
+.capability-item h4 { font-size: 1.25rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- Leadership with PICTURES --- */
+.leadership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.leader-profile { display: flex; align-items: start; }
+
+/* The Photo Frame */
+.photo-frame { 
+    width: 180px; height: 180px; 
+    flex-shrink: 0;
+    margin-right: 30px;
+    background-color: var(--medium-gray); /* Placeholder color if image fails */
+    border: 10px solid #ffffff; /* Contrast border for dark theme */
+    overflow: hidden; /* Ensures the photo stays within the frame */
+}
+.leader-photo { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* ESSENTIAL for this technique */
+    filter: grayscale(100%); 
+    transition: 0.3s;
+}
+.leader-profile:hover .leader-photo { filter: grayscale(0%); } /* Hover effect */
+
+.leader-info h4 { font-size: 2rem; color: var(--nni-white); text-transform: uppercase; font-family: 'Playfair Display', serif; }
+.leader-info span { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: var(--nni-white); display: block; margin-bottom: 15px; }
+
+/* --- Procurement Section --- */
+.contracting-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.contract-details p { font-size: 1rem; color: var(--primary-black); font-weight: 700; margin-bottom: 0.5rem; }
+.contract-details p strong { font-size: 1.5rem; letter-spacing: 2px; font-family: 'Playfair Display', serif; }
+
+.contract-identifiers ul { list-style: none; }
+.contract-identifiers li { 
+    display: flex; justify-content: space-between; 
+    border-bottom: 1px solid var(--medium-gray); 
+    padding: 15px 0; 
+}
+.contract-identifiers li .label { font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: var(--text-gray); }
+.contract-identifiers li .value { font-family: monospace; font-size: 1rem; font-weight: 700; }
+
+/* --- Footer --- */
+.main-footer { padding: 100px 0; text-align: center; }
+.main-footer h4 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--nni-white); font-weight: 500; font-style: italic; margin-bottom: 10px; }
+.main-footer p { color: #aaaaaa; margin-bottom: 40px; }
+.footer-cta { 
+    text-decoration: none; font-size: 2rem; font-weight: 700; letter-spacing: 2px;
+    color: var(--nni-white); display: block; transition: 0.2s; 
+}
+.footer-cta:hover { color: var(--logo-gold-accent); }
+.copyright { margin-top: 80px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); }
+.copyright p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #888888; }
+/* --- Footer Form Styling --- */
+.footer-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    text-align: left;
+}
+
+.footer-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-form input, 
+.footer-form textarea {
+    background: #111;
+    border: 1px solid #333;
+    padding: 15px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+
+.footer-form input:focus, 
+.footer-form textarea:focus {
+    outline: none;
+    border-color: var(--nni-white);
+}
+
+.footer-form .btn-dark {
+    width: fit-content;
+    cursor: pointer;
+    border: none;
+}
+
+/* Updated NAICS labels for the new fields */
+/* 812930: Parking Lots and Garages */
+/* 561320: Temporary Help Services (Staffing) */
+
+@media (max-width: 768px) {
+    .footer-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+/* --- Micro-Animations & Hover States --- */
+
+/* 1. Button Pulse Effect */
+.btn-dark {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.btn-dark::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.5s;
+    z-index: -1;
+}
+
+.btn-dark:hover::before {
+    left: 100%;
+}
+
+.btn-dark:hover {
+    letter-spacing: 4px; /* Text expands slightly on hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* 2. Capability Item Line Growth */
+.capability-item {
+    border-left: 0px solid var(--primary-black);
+    padding-left: 0;
+    transition: all 0.4s ease;
+}
+
+.capability-item:hover {
+    padding-left: 20px;
+    border-left: 5px solid var(--primary-black);
+}
+
+/* 3. Smooth Underline for Nav Links */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    bottom: -5px; left: 0;
+    background-color: var(--primary-black);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 4. Leader Photo Zoom */
+.photo-frame img {
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.leader-profile:hover .leader-photo {
+    transform: scale(1.1) rotate(1deg);
+}
+
+/* 5. Input Field Focus Effect */
+.footer-form input, .footer-form textarea {
+    transition: all 0.3s ease;
+}
+
+.footer-form input:focus, .footer-form textarea:focus {
+    background: #1a1a1a;
+    border-left: 5px solid var(--nni-white);
+    padding-left: 25px;
+}
+/* --- Pre-Loader Styles (White Theme) --- */
+#loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #ffffff; /* Switched to White */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.loader-content {
+    text-align: center;
+    width: 250px;
+}
+
+.loader-logo {
+    height: 120px; /* Slightly smaller for a cleaner look on white */
+    width: auto;
+    margin-bottom: 30px;
+    animation: pulseLogo 2s infinite ease-in-out;
+    /* Optional: if your logo is dark, this ensures it stands out */
+    filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.05)); 
+}
+
+.loader-bar {
+    width: 0;
+    height: 1px; /* Thinner line for a more sophisticated look */
+    background-color: var(--primary-black); /* Switched to Black line on White bg */
+    margin: 0 auto;
+    animation: loadProgress 2s forwards ease-in-out;
+}
+
+/* --- Animations remain the same --- */
+@keyframes pulseLogo {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.03); opacity: 1; }
+}
+
+@keyframes loadProgress {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+.loader-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+/* Animations */
+@keyframes pulseLogo {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes loadProgress {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Class to hide loader via JS */
+.loader-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
