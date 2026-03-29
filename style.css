@@ -372,50 +372,52 @@ section { padding: 130px 0; }
 
   /* Navbar */
   .navbar {
-    padding: 12px 0;
-  }
+    padding: 10px 0;
+}
 
-  .navbar .container {
+.navbar .container {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-  }
+    gap: 10px;
+}
 
-  .main-logo {
-    height: 85px;
-    max-width: 180px;
-  }
+.main-logo {
+    height: 70px;
+    max-width: 140px;
+}
 
-  .nav-links {
+.nav-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 10px 14px;
     width: 100%;
     padding: 0;
     margin: 0;
-  }
+}
 
-  .nav-links li {
+.nav-links li {
     margin-left: 0;
-  }
+}
 
-  .nav-links a {
-    font-size: 0.9rem;
+.nav-links a {
+    font-size: 0.82rem;
     letter-spacing: 1px;
-  }
+    line-height: 1.2;
+}
 
-  .nav-links a.nav-highlight {
-    padding: 10px 14px;
-  }
-
+.nav-links a.nav-highlight {
+    padding: 8px 12px;
+}
   /* Hero */
   .hero-minimal {
     min-height: auto;
     height: auto;
-    padding-top: 180px;
+    padding-top: 150px;
     padding-bottom: 70px;
-  }
+}
 
   .hero-minimal::before {
     width: 100%;
