@@ -753,3 +753,31 @@ input:focus, textarea:focus { border-color: #7fa0bf; box-shadow: 0 0 0 3px rgba(
 .contact-links .email-link { margin-top:0; }
 .phone-link { display:inline-block; font-size:1.05rem; font-weight:800; color:#fff; }
 .info-row a { color:inherit; }
+
+.form-status {
+  clear: both;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.form-status-success {
+  padding: 14px 16px;
+  color: #176b3a;
+  background: #eef9f2;
+  border: 1px solid #ccebd7;
+  border-radius: 6px;
+}
+
+.form-status-error {
+  padding: 14px 16px;
+  color: #9e1d24;
+  background: #fff1f2;
+  border: 1px solid #f0c8cb;
+  border-radius: 6px;
+}
+
+.contact-form button[disabled] {
+  opacity: 0.7;
+  cursor: wait;
+}
