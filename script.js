@@ -34,3 +34,47 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 revealTargets.forEach(el => observer.observe(el));
+
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+
+contactForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const originalText = submitButton.textContent;
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending...";
+
+  formStatus.className = "form-status";
+  formStatus.textContent = "";
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: {
+        Accept: "application/json"
+      }
+    });
+
+    if (response.ok) {
+      contactForm.reset();
+      formStatus.className = "form-status form-status-success";
+      formStatus.textContent =
+        "Thank you. Your message has been sent to Normal New Inc.";
+    } else {
+      formStatus.className = "form-status form-status-error";
+      formStatus.textContent =
+        "We could not send your message. Please try again or email Yonas@normalnewinc.com.";
+    }
+  } catch (error) {
+    formStatus.className = "form-status form-status-error";
+    formStatus.textContent =
+      "We could not send your message. Please try again or email Yonas@normalnewinc.com.";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = originalText;
+  }
+});
