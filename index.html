@@ -429,7 +429,7 @@
           </div>
         </div>
 
-        <form class="contact-form" action="https://formspree.io/f/mljgavne" method="POST">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mljgavne" method="POST">
           <input type="hidden" name="_subject" value="New Normal New Inc. Website Inquiry">
           <h3>Send Us a Message</h3>
           <div class="form-grid">
@@ -439,6 +439,7 @@
           </div>
           <label>Message<textarea name="message" rows="5" placeholder="How can we help?" required></textarea></label>
           <button class="btn btn-red" type="submit">Send Message →</button>
+          <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
     </section>
